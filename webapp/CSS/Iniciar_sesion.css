@@ -151,9 +151,7 @@ input::placeholder,::placeholder{
 .btn:hover{ /* hover cuando pasa el mouse por encima de cosas*/
      background-color: darkgoldenrod;
 }
-.mapa{
-    margin-top: 5%;
-}
+
 
 /*
 FOOTER

@@ -64,6 +64,7 @@ public class login extends HttpServlet {
 				
 				
 				sesion.setAttribute("id", u.getId());
+				sesion.setAttribute("permiso", u.getPermiso());
 				
 				
 				response.sendRedirect("index2.html");

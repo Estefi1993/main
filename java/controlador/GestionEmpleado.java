@@ -130,13 +130,14 @@ import dao.DaoEmpleados;
 			String direccion = request.getParameter("direccion");
 			String especialidad = request.getParameter("especialidad");
 			String email= request.getParameter("email");
+			int permiso = Integer.parseInt(request.getParameter("permiso"));
 			String id = request.getParameter("id");
 			
 			Empleado n1 ;
 			
 			try {
 				
-				n1 = new Empleado(nombre, apellidos, telefono, direccion, especialidad, email);
+				n1 = new Empleado(nombre, apellidos, telefono, direccion, especialidad, email, permiso);
 				if(id == "") {
 					
 					DaoEmpleados dao = new DaoEmpleados();

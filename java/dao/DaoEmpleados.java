@@ -26,7 +26,7 @@ public static Connection con = null;
 	
 	public void insertar(Empleado u) throws SQLException {
 		
-		String sql = "INSERT INTO empleado (nombre,apellidos,telefono,direccion,especialidad,email) VALUES (?,?,?,?,?,?)";
+		String sql = "INSERT INTO empleado (nombre,apellidos,telefono,direccion,especialidad,email,permiso) VALUES (?,?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, u.getNombre());
 		ps.setString(2, u.getApellidos());
@@ -34,6 +34,8 @@ public static Connection con = null;
 		ps.setString(4, u.getDireccion());
 		ps.setString(5, u.getEspecialidad());
 		ps.setString(6, u.getEmail());
+		ps.setInt(4, u.getPermiso());
+		
 	
 		
 		int filas = ps.executeUpdate();
@@ -42,7 +44,7 @@ public static Connection con = null;
 	
 	
 	public void actualizar(Empleado u) throws SQLException {
-		String sql = "UPDATE empleado SET nombre=?,apellidos=?,telefono=?,direccion=?,especialidad=?,email=? WHERE id =?";
+		String sql = "UPDATE empleado SET nombre=?,apellidos=?,telefono=?,direccion=?,especialidad=?,email=?, permiso=? WHERE id =?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, u.getNombre());
 		ps.setString(2, u.getApellidos());
@@ -50,6 +52,7 @@ public static Connection con = null;
 		ps.setString(4, u.getDireccion());
 		ps.setString(5, u.getEspecialidad());
 		ps.setString(6, u.getEmail());
+		ps.setInt(4, u.getPermiso());
 		ps.setInt(7,u.getId());
 		
 	
@@ -77,7 +80,7 @@ public static Connection con = null;
 		ResultSet rs = ps.executeQuery();
 		rs.next();
 		
-		Empleado u = new Empleado(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
+		Empleado u = new Empleado(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8));
 		return u;
 	}
 
@@ -93,7 +96,7 @@ public static Connection con = null;
 		rs.next();
 			
 
-		Empleado aux = new Empleado(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
+		Empleado aux = new Empleado(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8));
 		return aux;
 		
 		
@@ -112,7 +115,7 @@ public static Connection con = null;
 			if(ls == null) {
 				ls = new ArrayList<Empleado>();
 				}
-				ls.add(new Empleado(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7)));
+				ls.add(new Empleado(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8)));
 		}
 		
 		return ls;	

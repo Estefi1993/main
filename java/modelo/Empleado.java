@@ -32,6 +32,7 @@ public class Empleado {
 	private String direccion;
 	private String especialidad;
 	private String email;
+	private int permiso;
 
 
 	
@@ -57,7 +58,7 @@ public class Empleado {
      */
 
 	public Empleado(int id, String nombre, String apellidos, String telefono, String direccion, String especialidad,
-			String email) {
+			String email, int permiso) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -66,6 +67,7 @@ public class Empleado {
 		this.direccion = direccion;
 		this.especialidad = especialidad;
 		this.email = email;
+		this.permiso = permiso;
 	
 	}
 	 /**
@@ -77,11 +79,12 @@ public class Empleado {
      * @param direccion La dirección del empleado.
      * @param especialidad La especialidad del empleado.
      * @param email El correo electrónico del empleado.
+	 * @param permiso El permiso para el acceso
      */
 
 
 	public Empleado(String nombre, String apellidos, String telefono, String direccion, String especialidad,
-			String email) {
+			String email, int permiso) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -89,10 +92,23 @@ public class Empleado {
 		this.direccion = direccion;
 		this.especialidad = especialidad;
 		this.email = email;
+		this.permiso = permiso;
+		
 		
 	}
+	
 
-	 /**
+	public int getPermiso() {
+		return permiso;
+	}
+
+
+	public void setPermiso(int permiso) {
+		this.permiso = permiso;
+	}
+
+
+	/**
      * Devuelve el ID del empleado.
      * @return El ID del empleado.
      */
@@ -109,7 +125,7 @@ public class Empleado {
 		this.id = id;
 	}
 
-	//Métodos getter y setters para los demás atributos.
+	
 
 	public String getNombre() {
 		return nombre;
@@ -235,6 +251,7 @@ public class Empleado {
 			this.setDireccion(aux.getDireccion());
 			this.setEspecialidad(aux.getEspecialidad());
 			this.setEmail(aux.getEmail());
+			this.setPermiso(aux.getPermiso());
 			
 		}
 			
@@ -280,28 +297,23 @@ public class Empleado {
 		this.setDireccion(aux.getDireccion());
 		this.setEspecialidad(aux.getEspecialidad());
 		this.setEmail(aux.getEmail());
+		this.setPermiso(aux.getPermiso());
 	
 		
 		
 	}
-
-	
 	/**
      * Devuelve una representación en forma de cadena del objeto Empleado.
+     *
      */
+
 	
 	@Override
 	public String toString() {
 		return "Empleado [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", telefono=" + telefono
-				+ ", direccion=" + direccion + ", especialidad=" + especialidad + ", email=" + email +  "]";
+				+ ", direccion=" + direccion + ", especialidad=" + especialidad + ", email=" + email + ", permiso="
+				+ permiso + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
