@@ -147,35 +147,9 @@ MAIN
   details[open] summary::marker {
     content: "⮟ ";
   }
-  .contenedor{
-	  align-self: flex-end; 
-      margin-bottom: 30%;
-	  
-  }
-  .contacto{
-	margin-top: 5%;
-	color: darkgoldenrod;
-	font-size: 60px;
-	align-self: flex-end;
-  }
-    .datos{
-        margin-top: 10%;
-        font-size: 25px;
-        background-color: white;
-        display: inline-block;
-        border-radius: 3px;
-        margin-left: 15px;
-        
-        
-	}
-	p{
-        color: black;
-        font-family: Arial, sans-serif; /* Establece la fuente del párrafo */
-        font-size: 25px; /*  tamaño de la fuente */
-        line-height: 1.5;
-    }
+  
 	.mapa{
-
+	margin-top: 10%;
 	margin-bottom: 5%;
     margin-left: 15px;
 	
@@ -208,6 +182,24 @@ FOOTER
     text-decoration: underline;
     color: darkgoldenrod;
 }
+ .datos{
+  
+     display:inline-block;
+     border: 2px solid;
+     padding: 10px;/* Añade un espacio interno alrededor del contenido */
+     border-color: darkgoldenrod;
+     margin-left: 20px;
+      
+     
+	}
+.datos, p{
+      color: white;
+      font-family: Arial, sans-serif; /* Establece la fuente del párrafo */
+      font-size: 17px; /*  tamaño de la fuente */
+      line-height: 1.5;
+      
+      
+    }
 
 .redes{
  margin-left: 4%;
@@ -219,7 +211,7 @@ FOOTER
 }
 
 .final{
-    font-size: 17px;
+    font-size: 15px;
     margin-right: 400px;
 }
 

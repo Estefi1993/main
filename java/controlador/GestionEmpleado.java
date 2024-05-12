@@ -157,7 +157,7 @@ import dao.DaoEmpleados;
 				e.printStackTrace();
 				
 			}
-			response.sendRedirect("ListarEmpleados.html");
+			response.sendRedirect("index2.html");
 	}
 
 }

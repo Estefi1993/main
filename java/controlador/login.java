@@ -66,7 +66,7 @@ public class login extends HttpServlet {
 				sesion.setAttribute("id", u.getId());
 				
 				
-				response.sendRedirect("ListarUsuarios.html");
+				response.sendRedirect("index2.html");
 				
 			}else {
 				response.sendRedirect("Iniciar_sesion.html");
