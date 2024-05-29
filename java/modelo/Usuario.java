@@ -18,6 +18,7 @@ import dao.DaoRegistro;
 	 * - telefono: número de teléfono del usuario.
 	 * - direccion: dirección del usuario.
 	 * - email: dirección de correo electrónico del usuario.
+	 * -permiso: el permiso asignado a cada usuario.
 	 * 
 	 * @author Estefanía Vázquez
 	 * @version 1.0 (12/05/2024)
@@ -43,29 +44,14 @@ import dao.DaoRegistro;
 	}
 
 	/**
-	 * Constructor que inicializa un objeto usuario.
-	 * @param nombre Nombre del usuario.
-	 * @param apellidos Apellidos del usuario.
-	 * @param telefono Teléfono del usuario.
-	 * @param direccion Dirección del usuario.
-	 * @param email Email del usuario.
+	 * 
+	 * @param nombre contructor que inicializa el nombre de un objeto
+	 * @param apellidos contructor que inicializa el apellidos de un objeto
+	 * @param telefono contructor que inicializa el telefono de un objeto
+	 * @param direccion contructor que inicializa el direccion de un objeto
+	 * @param email contructor que inicializa el email de un objeto
+	 * @param permiso contructor que inicializa el permiso de un objeto
 	 */
-
-
-
-	/**
-	 * Constructor que inicializa un objeto usuario con un identificador único.
-	 * @param id Identificador único del usuario.
-	 * @param nombre Nombre del usuario.
-	 * @param apellidos Apellidos del usuario.
-	 * @param telefono Teléfono del usuario.
-	 * @param direccion Dirección del usuario.
-	 * @param email Email del usuario.
-	 * @param permiso El permiso que tiene cada usuario.
-	 */
-
-
-
 
 	public Usuario(String nombre, String apellidos, String telefono, String direccion, String email,int permiso) {
 		super();
@@ -77,7 +63,15 @@ import dao.DaoRegistro;
 		this.permiso = permiso;
 	}
 
-
+	/**
+	 * @param id contructor que inicializa el id de un objeto
+	 * @param nombre contructor que inicializa el nombre de un objeto
+	 * @param apellidos contructor que inicializa el apellidos de un objeto
+	 * @param telefono contructor que inicializa el telefono de un objeto
+	 * @param direccion contructor que inicializa el direccion de un objeto
+	 * @param email contructor que inicializa el email de un objeto
+	 * @param permiso contructor que inicializa el permiso de un objeto
+	 */
 	public Usuario(int id, String nombre, String apellidos, String telefono, String direccion, String email,
 			 int permiso) {
 		super();
@@ -223,10 +217,12 @@ import dao.DaoRegistro;
 		this.permiso = permiso;
 	}
 
+	
+	
 	/**
-	 *<strong> Obtiene la información del usuario por su identificador único.<strong>
-	 * @param id El identificador único del usuario.
-	 * @throws SQLException Si ocurre un error al acceder a la base de datos.
+	 * Obtiene un usuario por su identificador.
+	 * @param id  identificador del usuario a obtener.
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
 	 */
 	public void obtenerPorId(int id) throws SQLException {
 		// TODO Auto-generated method stub
@@ -245,6 +241,13 @@ import dao.DaoRegistro;
 		
 		
 	}
+	/**
+	 * Obtiene el permiso de un usuario por su identificador.
+	 * 
+	 * @param id el identificador del usuario del cual se quiere obtener el permiso
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
+	 */
+	
 	public void obtenerPermisoPorId(int id) throws SQLException {
 		// TODO Auto-generated method stub
 		
@@ -262,6 +265,15 @@ import dao.DaoRegistro;
 		
 		
 	}
+	
+	/**
+	 * Realiza el proceso de inicio de sesión para un usuario.
+	 * 
+	 * @param hashedPass la contraseña del usuario ya encriptada
+	 * @return true si el inicio de sesión es exitoso, false en caso contrario
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
+	 */
+	
 	public boolean logeo(String hashedPass) throws SQLException {
 		
 	      boolean ok = false;
@@ -310,8 +322,10 @@ import dao.DaoRegistro;
 	}
 
 	/**
-	 * Inserta la información del usuario en la base de datos.
-	 * @throws SQLException Si ocurre un error al acceder a la base de datos.
+	 * Inserta un nuevo usuario en la base de datos.
+	 * 
+	 * @param hashedPass la contraseña del usuario ya encriptada
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
 	 */
 	public void insertar(String hashedPass) throws SQLException {
 		// TODO Auto-generated method stub

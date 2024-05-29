@@ -60,6 +60,12 @@ public class DaoRegistro {
 		ps.close();
 	}
 	
+	/**
+	 * Actualiza los datos de un usuario en la base de datos.
+	 * 
+	 * @param u el usuario con los datos actualizados
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
+	 */
 
 	public void actualizar(Usuario u) throws SQLException {
 		String sql = "UPDATE altausuario SET nombre=?,apellidos=?,telefono=?,direccion=?,email=?,permiso=? WHERE id =?";
@@ -79,6 +85,13 @@ public class DaoRegistro {
 	}
 	
 	
+	/**
+	 * Elimina un usuario de la base de datos por su identificador.
+	 * 
+	 * @param id el identificador del usuario a eliminar
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
+	 */
+	
 	public void borrar(int id) throws SQLException {
 		
 		String sql= "DELETE FROM  altausuario WHERE id=?";
@@ -89,7 +102,13 @@ public class DaoRegistro {
 		ps.close();  
 	}
 	
-	
+	/**
+	 * Obtiene un usuario de la base de datos por su identificador.
+	 * 
+	 * @param id el identificador del usuario a obtener
+	 * @return el usuario obtenido
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
+	 */
 	public Usuario obtenerPorId (int id) throws SQLException {
 		
 		String sql = "SELECT * FROM altausuario WHERE id =?";
@@ -103,7 +122,12 @@ public class DaoRegistro {
 		return u;
 	}
 
-	
+	/**
+	 * Obtiene una lista de todos los usuarios almacenados en la base de datos.
+	 * 
+	 * @return una lista de usuarios
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
+	 */
 	public ArrayList<Usuario> listar() throws SQLException{
 		
 		String sql = "SELECT * FROM altausuario";
@@ -127,10 +151,11 @@ public class DaoRegistro {
 		
 	}
 	/**
-	 * Método listar que retorna los usuarios con el filtrado de tipo.
-	 * @param tipo
-	 * @return
-	 * @throws SQLException
+	 * Obtiene una lista de usuarios de la base de datos filtrados por tipo.
+	 * 
+	 * @param tipo el tipo de usuario a filtrar
+	 * @return una lista de usuarios del tipo especificado
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
 	 */
 	
      public ArrayList<Usuario> listar(int tipo) throws SQLException{
@@ -156,7 +181,14 @@ public class DaoRegistro {
 		
 	}
      
-     
+     /**
+      * Realiza el proceso de inicio de sesión para un usuario.
+      * 
+      * @param u el usuario que intenta iniciar sesión
+      * @param hashedPass la contraseña del usuario ya encriptada
+      * @return el usuario si el inicio de sesión es exitoso, null en caso contrario
+      * @throws SQLException si ocurre un error al acceder a la base de datos
+      */
     
      public Usuario logeando(Usuario u, String hashedPass) throws SQLException {
     	    
@@ -177,6 +209,15 @@ public class DaoRegistro {
     	        return null;
     	    }
     	}
+     
+     /**
+      * Obtiene un usuario de la base de datos por su identificador, incluyendo su permiso.
+      * 
+      * @param id el identificador del usuario a obtener
+      * @return el usuario obtenido, incluyendo su permiso
+      * @throws SQLException si ocurre un error al acceder a la base de datos
+      */
+    
      public Usuario obtenerPermisoPorId (int id) throws SQLException {
  		
  		String sql = "SELECT * FROM altausuario WHERE id =?";
@@ -190,7 +231,12 @@ public class DaoRegistro {
  		return u;
  	}
 
-		
+     /**
+      * Devuelve la representación JSON de todos los usuarios almacenados en la base de datos.
+      * 
+      * @return la representación JSON de los usuarios
+      * @throws SQLException si ocurre un error al acceder a la base de datos
+      */
 	public String listarJson() throws SQLException {
 		
 		String json = "";
@@ -218,6 +264,13 @@ public class DaoRegistro {
         }
     }
 	
+	/**
+	 * Devuelve la representación JSON de todos los usuarios almacenados en la base de datos filtrados por tipo.
+	 * 
+	 * @param tipoUsuario el tipo de usuario a filtrar
+	 * @return la representación JSON de los usuarios del tipo especificado
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
+	 */
 	public String listarJson(int tipoUsuario) throws SQLException {
  		
 		String json = "";	

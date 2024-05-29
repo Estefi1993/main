@@ -22,6 +22,12 @@ public class DaoCitas {
 		this.con = dbconexion.getConexion();
 	}
 	
+	/**
+	 * Inserta una nueva cita en la base de datos.
+	 * 
+	 * @param n la cita a insertar
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
+	 */
 	public void insertar (citas n) throws SQLException {
 		String sql = "INSERT INTO citas (nombre,apellidos,fecha,hora,motivo) VALUES (?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -34,6 +40,12 @@ public class DaoCitas {
 		int fils = ps.executeUpdate();
 	}
 	
+	/**
+	 * Obtiene una lista de todas las citas de la base de datos.
+	 * 
+	 * @return una lista de citas
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
+	 */
 	public ArrayList<citas> listar() throws SQLException{
 		
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM  citas");
@@ -51,6 +63,13 @@ public class DaoCitas {
 	}
 	
 	
+	/**
+	 * Actualiza los datos de una cita en la base de datos.
+	 * 
+	 * @param u la cita con los datos actualizados
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
+	 */
+	
 	public void actualizar(citas u) throws SQLException {
 		String sql = "UPDATE citas SET nombre=?,apellidos=?,fecha=?,hora=?,motivo=? WHERE id =?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -65,6 +84,14 @@ public class DaoCitas {
 		int filas = ps.executeUpdate();
 		ps.close();  
 	}
+	
+	/**
+	 * Obtiene una cita de la base de datos por su identificador.
+	 * 
+	 * @param id el identificador de la cita a obtener
+	 * @return la cita obtenida
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
+	 */
 	public citas obtenerPorId(int id) throws SQLException {
 		
 		String sql = "SELECT * FROM citas WHERE id=?";
@@ -79,6 +106,13 @@ public class DaoCitas {
 
 		return u;
 	}
+	
+	/**
+	 * Elimina una cita de la base de datos por su identificador.
+	 * 
+	 * @param id el identificador de la cita a eliminar
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
+	 */
 	public void borrar(int id) throws SQLException {
 		
 		String sql= "DELETE FROM  citas WHERE id=?";
@@ -89,6 +123,13 @@ public class DaoCitas {
 		ps.close();  
 	}
 	
+	
+	/**
+	 * Devuelve la representación JSON de todas las citas almacenadas en la base de datos.
+	 * 
+	 * @return la representación JSON de las citas
+	 * @throws SQLException si ocurre un error al acceder a la base de datos
+	 */
 	public String listarJson() throws SQLException {
 		
 		String json = "";
