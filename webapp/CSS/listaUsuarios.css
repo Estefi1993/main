@@ -61,21 +61,45 @@ DEJAR LA BARRA DE NAVEGACIÓN FIJA
 background-color: rgb(92, 89, 89);
 
 }
-ul li{
+.menu-vertical1{
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 200px;
+
+}
+	.navbar li:hover .menu-vertical1{
+    display: block;
+}
+
+	.menu-vertical1 li:hover{
+	background-color: rgb(92, 89, 89);
+
+}
+	
+	ul li{
     display: inline-block;
     padding: 0px 20px;
     font-size: 25px;
 
 }
 
-a{
+	a{
     color: white;
     text-decoration: none;
 }
-a:hover{
+	a:hover{
     color: darkgoldenrod;
     transition: 0.6s;
 }
+    .Boton{
+    border: 1px solid;
+    border-color: darkgoldenrod;
+    padding:5px;
+    border-radius: 15px;
+    background-color: darkgoldenrod;
+
+    }
 
 /*
 button{
@@ -132,6 +156,13 @@ h1 {
     text-align: center;
 
 }
+.buscar{
+	
+	  display: block;
+    margin: 0 auto;
+	
+}
+
 /*
 FOOTER
 */

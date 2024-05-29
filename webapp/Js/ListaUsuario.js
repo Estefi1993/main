@@ -1,9 +1,13 @@
 
-  
   function llamada(){
 		fetch('GestionUsuarios?op=1')
 		.then(response => response.json())
-		.then(data => pintarTabla(data))	
+		.then(data =>{
+			console.log("Datos obtenidos:", data);
+		
+		
+		 pintarTabla(data);
+		 });
 		
 	}
 	
@@ -20,7 +24,7 @@
 	
 		
 	function pintarTabla(datos){
-		let html = "<table border='5' >";
+		let html = "<table border='5'>";
 		
 		for (let i=0;i<datos.length;i++){
 			
@@ -34,13 +38,26 @@
 		html +="<td><a href = 'Registrarse.html?id="+datos[i].id+"&op=2'>Editar</a></td><td><a href='javascript:borrar("+datos[i].id+")'>Borrar</a></td>";
 		html +="</tr>";
 		
-		}
+	}
 		html +="</table>";
 		
 		document.getElementById("listado").innerHTML = html;
  	
+ 	
+	 }
+	 
+ 	function busquedaPorTipo(tipoUsuario){
+		
+		fetch('GestionUsuarios?op=4&tipoUsuario='+tipoUsuario)
+			.then(response => response.json())
+			.then(data => pintarTabla(data))
+		
 	}
+	
+ 	
+	window.onload = function(){
+		
 
 		llamada();
 	
-	
+	}

@@ -59,7 +59,7 @@ DEJAR LA BARRA DE NAVEGACIÓN FIJA
 }
 
 .menu-vertical li:hover{
-background-color: rgb(92, 89, 89);
+	background-color: rgb(92, 89, 89);
 
 }
 ul li{
@@ -135,6 +135,12 @@ input{
 input::placeholder,::placeholder{
     color:rgb(137, 133, 133);
 }
+
+li{
+	list-style: none;
+}
+
+
 .btn {
     margin-top: 10%;
     font-size: 20px;
@@ -145,7 +151,7 @@ input::placeholder,::placeholder{
     cursor: pointer; /*poner  cursor con forma de mano*/
 }
 .btn:hover{ /* hover cuando pasa el mouse por encima de cosas*/
-     background-color: darkgoldenrod;
+    background-color: darkgoldenrod;
 }
 
 
@@ -180,7 +186,7 @@ hr{
 }
 
 .redes{
- margin-left: 4%;
+    margin-left: 4%;
 }
 
 .redes_sociales{

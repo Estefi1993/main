@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Smiles</title>
-    <link rel="stylesheet" href="./CSS/RegistroUsuario.css">
-    <link rel="stylesheet" href="./CSS/Estilos.css">
-    
-    <script src="./Js/Validar.js"></script>
+    <link rel="stylesheet" href="./CSS/citas.css">
+     <link rel="stylesheet" href="./CSS/Estilos.css">
+    <script src="./Js/ValidarCitas.js"></script>
+  
 
 </head>
 
@@ -20,42 +20,33 @@
                 <li><a href="./index.html">Inicio</a></li>
                 <li><a href="./QuienesSomos.html">Nuestro Equipo</a></li>
                 <li><a href="./Tratamientos.html">Tratamientos</a></li>
+                <li><a href="./citas.html">Citas</a></li>
                 <li><a href="./Iniciar_sesion.html">Inicia sesión</a></li>
-                <li><a href="./Registrarse.html">Regístrate</a>	</li>
-                   
+                <li><a href="./Registrarse.html">Regístrate</a>
+                      
             </ul>
         </nav>
     </header>
 
-	  
-       <form  name="Registrarse"  action="GestionUsuarios" method="post"  id="altas">
+	     
+       <form  name="citas"  action="GestionCitas" method="post" id="citas">
 
           <div class="input-group">
-		
-               <h1>REGISTRARSE</h1>
-               
-            <input type="hidden" id="id" name="id">
+			<h1>Cita</h1>
+            
+            <input type="hidden" id="id" name="id" >
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" id="nombre" placeholder="Nombre">
             <label for="apellidos">Apellidos</label>
             <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
-            <label for="telefono">Teléfono</label>
-            <input type="tel" name="telefono" id="telefono" placeholder="Teléfono">
-            <label for="direccion">Dirección</label>
-            <input type="text" name="direccion" id="direccion" placeholder="Dirección">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="Email">
-             <label for="pass">Contraseña</label>
-            <input type="password" name="pass" id="pass" placeholder="Password">
-            <li> <select name="permiso">
-					
-					<option value="0">...</option>
-					<option value="1">Usuario</option>
-					<option value="9">Administrador</option>
-
-				</select></li>
+            <label for="fecha">Fecha</label>
+            <input type="date"  value="2024-05-27" min="2024-06-01" max="2025-01-01" name="fecha" id="fecha" >
+            <label for="hora">Hora</label>
+            <input type="time" name="hora" id="hora" >
+            <label for="motivo">Motivo</label>
+            <textarea name="motivo" id="motivo" placeholder=""></textarea>
             
-            <input class="btn" type="submit" onclick="validarFormulario()" value="Enviar">
+            <input class="btn" type="submit" onclick="validarFormulario()" value="Registrar Cita">
 		
         </div>
 

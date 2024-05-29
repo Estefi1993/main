@@ -99,4 +99,34 @@
     <servlet-name>login</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CerrarSesion</display-name>
+    <servlet-name>CerrarSesion</servlet-name>
+    <servlet-class>controlador.CerrarSesion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CerrarSesion</servlet-name>
+    <url-pattern>/CerrarSesion</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GestionCitas</display-name>
+    <servlet-name>GestionCitas</servlet-name>
+    <servlet-class>controlador.GestionCitas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GestionCitas</servlet-name>
+    <url-pattern>/GestionCitas</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DaoCitas</display-name>
+    <servlet-name>DaoCitas</servlet-name>
+    <servlet-class>dao.DaoCitas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DaoCitas</servlet-name>
+    <url-pattern>/DaoCitas</url-pattern>
+  </servlet-mapping>
 </web-app>

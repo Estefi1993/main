@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import com.google.gson.Gson;
 
-import dao.DaoEmpleados;
+
 import dao.DaoRegistro;
 ;
 
@@ -31,6 +31,7 @@ import dao.DaoRegistro;
 		private String telefono;
 		private String direccion;
 		private String email;
+		private int permiso;
 		
 	
 	
@@ -50,14 +51,6 @@ import dao.DaoRegistro;
 	 * @param email Email del usuario.
 	 */
 
-	public Usuario(String nombre, String apellidos, String telefono, String direccion, String email) {
-		super();
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.telefono = telefono;
-		this.direccion = direccion;
-		this.email = email;
-	}
 
 
 	/**
@@ -68,9 +61,25 @@ import dao.DaoRegistro;
 	 * @param telefono Teléfono del usuario.
 	 * @param direccion Dirección del usuario.
 	 * @param email Email del usuario.
+	 * @param permiso El permiso que tiene cada usuario.
 	 */
 
-	public Usuario(int id, String nombre, String apellidos, String telefono, String direccion, String email) {
+
+
+
+	public Usuario(String nombre, String apellidos, String telefono, String direccion, String email,int permiso) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.telefono = telefono;
+		this.direccion = direccion;
+		this.email = email;
+		this.permiso = permiso;
+	}
+
+
+	public Usuario(int id, String nombre, String apellidos, String telefono, String direccion, String email,
+			 int permiso) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -78,6 +87,7 @@ import dao.DaoRegistro;
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.email = email;
+		this.permiso = permiso;
 	}
 
 
@@ -198,6 +208,22 @@ import dao.DaoRegistro;
 
 	
 	/**
+	 * Obtiene el permiso de casa usuario
+	 * @return
+	 */
+	
+	public int getPermiso() {
+		return permiso;
+	}
+	/**
+	 * Establece el permiso de cada usuario.
+	 * @param permiso
+	 */
+	public void setPermiso(int permiso) {
+		this.permiso = permiso;
+	}
+
+	/**
 	 *<strong> Obtiene la información del usuario por su identificador único.<strong>
 	 * @param id El identificador único del usuario.
 	 * @throws SQLException Si ocurre un error al acceder a la base de datos.
@@ -215,8 +241,50 @@ import dao.DaoRegistro;
 		this.setTelefono(aux.getTelefono());
 		this.setDireccion(aux.getDireccion());
 		this.setEmail(aux.getEmail());
+		this.setPermiso(aux.getPermiso());
+		
 		
 	}
+	public void obtenerPermisoPorId(int id) throws SQLException {
+		// TODO Auto-generated method stub
+		
+		
+		DaoRegistro dao = new DaoRegistro();
+		Usuario u = dao.obtenerPermisoPorId(id);
+		
+		this.setId(u.getId());
+		this.setNombre(u.getNombre());
+		this.setApellidos(u.getApellidos());
+		this.setTelefono(u.getTelefono());
+		this.setDireccion(u.getDireccion());
+		this.setEmail(u.getEmail());
+		this.setPermiso(u.getPermiso());
+		
+		
+	}
+	public boolean logeo(String hashedPass) throws SQLException {
+		
+	      boolean ok = false;
+	      DaoRegistro dao = new DaoRegistro();
+	    
+	      Usuario aux = dao.logeando(this, hashedPass);
+	      
+	      if (aux != null) {
+	        
+	         this.setId(aux.getId());
+	         this.setNombre(aux.getNombre());
+	         this.setApellidos(aux.getApellidos());
+	         this.setTelefono(aux.getTelefono());
+	         this.setDireccion(aux.getDireccion());
+	         this.setEmail(aux.getEmail());
+	         this.setPermiso(aux.getPermiso());
+	         ok = true;
+	      }
+
+	      return ok;
+	   }
+
+  
 	/**
 	 * Convierte el objeto Usuario en formato JSON.
 	 * @return Una cadena de texto que representa el objeto Usuario en formato JSON.
@@ -245,13 +313,15 @@ import dao.DaoRegistro;
 	 * Inserta la información del usuario en la base de datos.
 	 * @throws SQLException Si ocurre un error al acceder a la base de datos.
 	 */
-	public void insertar() throws SQLException {
+	public void insertar(String hashedPass) throws SQLException {
 		// TODO Auto-generated method stub
 		
 		DaoRegistro dao = new DaoRegistro();
-		dao.insertar(this);
+		dao.insertar(this,  hashedPass);
+				
 		
 	}
+	
 	/**
 	 * Borra el usuario de la base de datos.
 	 * @throws SQLException Si ocurre un error al acceder a la base de datos.
@@ -261,15 +331,17 @@ import dao.DaoRegistro;
 		dao.borrar(id);
 		
 	}
+
+
+
+
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", telefono=" + telefono
-				+ ", direccion=" + direccion + ", email=" + email + "]";
+				+ ", direccion=" + direccion + ", email=" + email + ", permiso=" + permiso + "]";
 	}
 
 
 
 	}
-	
-	
 
