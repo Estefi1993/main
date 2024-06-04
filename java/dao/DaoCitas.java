@@ -37,7 +37,7 @@ public class DaoCitas {
 		ps.setObject(4, n.getHora());
 		ps.setString(5, n.getMotivo());
 		
-		int fils = ps.executeUpdate();
+		int filas = ps.executeUpdate();
 	}
 	
 	/**

@@ -130,8 +130,7 @@ public class DaoRegistro {
 	 */
 	public ArrayList<Usuario> listar() throws SQLException{
 		
-		String sql = "SELECT * FROM altausuario";
-		PreparedStatement ps = con.prepareStatement(sql);
+		PreparedStatement ps = con.prepareStatement("SELECT id, nombre, apellidos, telefono, direccion, email, permiso FROM altausuario");
 		
 		ResultSet rs = ps.executeQuery();
 		
@@ -160,7 +159,7 @@ public class DaoRegistro {
 	
      public ArrayList<Usuario> listar(int tipo) throws SQLException{
 		
-		String sql = "SELECT * FROM altausuario WHERE permiso=?";
+		String sql = "SELECT id, nombre, apellidos, telefono, direccion, email, permiso FROM altausuario WHERE permiso=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, tipo);
 		ResultSet rs = ps.executeQuery();
@@ -175,6 +174,7 @@ public class DaoRegistro {
 				}
 			
 				ls.add(new Usuario (rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getInt(7)));
+				
 		}
 		
 		return ls;
@@ -271,12 +271,12 @@ public class DaoRegistro {
 	 * @return la representación JSON de los usuarios del tipo especificado
 	 * @throws SQLException si ocurre un error al acceder a la base de datos
 	 */
-	public String listarJson(int tipoUsuario) throws SQLException {
+	public String listarJson(int tipo) throws SQLException {
  		
 		String json = "";	
 		Gson gson = new Gson();
 		
-		json = gson.toJson(this.listar(tipoUsuario));
+		json = gson.toJson(this.listar(tipo));
 		
 		return json;
 	

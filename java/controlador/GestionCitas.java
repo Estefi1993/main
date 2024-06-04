@@ -134,13 +134,6 @@ public class GestionCitas extends HttpServlet {
 			e.printStackTrace();
 		}
 	 }
-		
-	
-		
-
-
-	 
-	    
 	
 
 	}

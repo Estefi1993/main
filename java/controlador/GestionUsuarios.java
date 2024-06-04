@@ -28,14 +28,13 @@ import dao.DaoRegistro;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		sesion = request.getSession();
 		
-			 
 		PrintWriter out = response.getWriter();
 	
 		
 		int opcion = Integer.parseInt(request.getParameter("op"));
-	
+		
+		
 		if (opcion == 2 ) {
 			//proceso logica edicion.
 			
@@ -54,11 +53,11 @@ import dao.DaoRegistro;
 			
 		}else if (opcion == 1){
 			
-			DaoRegistro usuarios;
+			DaoRegistro usuario;
 
 			try {
-				usuarios = new DaoRegistro();
-				out.print(usuarios.listarJson());
+				usuario = new DaoRegistro();
+				out.print(usuario.listarJson());
 		
 			} catch (SQLException e) {
 		
